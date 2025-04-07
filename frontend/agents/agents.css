@@ -1,0 +1,21 @@
+body {
+    background-color: #1a1a1a;
+}
+
+.text {
+    font-weight: 500;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background-color: #7a7a7a;
+}

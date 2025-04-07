@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viper - HIT Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../images/hit_logo.jpg" type="image/jpeg">
+    <link rel="icon" href="/images/hit_logo.jpg" type="image/jpeg">
+    <script src="../script.js"></script>
+    <script defer src="viper.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const isPrem = localStorage.getItem("is_prem");
+
+            // Kalau belum login atau belum premium
+            if (!isPrem || isPrem !== "1") {
+                window.location.href = "../restricted.html";
+            }
+        });
+    </script>
+
+    <style>
+        body {
+            background-color: #274b35;
+            color: #EAEAEA;
+        }
+        
+        .cypher-img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 4px solid black;
+        }
+        
+        .profile-pic {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 10px;
+            border: 3px solid white;
+        }
+        
+        .profile-class {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 10px;
+            margin-left: 25px;
+            border: 3px solid white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <!-- ini navbar -->
+        <nav class="navbar bg-danger mb-5">
+            <div class="container-fluid">
+                <img src="../logo.png" alt="Logo" width="5%" height="5%">
+                <a class="navbar-brand" href="../index.html" style="font-weight: 600;">HIT Academy</a>
+                <div class="d-flex align-items-center ms-auto">
+                    <a id="login-button" class="btn btn-dark me-2 mr-5" href="#" style="color:#ff4655; font-weight: 600;">MASUK</a>
+                    <button class="navbar-toggler m-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav" style="font-weight: 800;">
+                            <a class="nav-link" href="../index.html">Home</a>
+                            <a class="nav-link" href="agents.html">Agents</a>
+                            <a class="nav-link" href="../sub.html">Subscribe</a>
+                            <a class="nav-link" href="../about.html">About Us</a>
+                        </div>
+                    </div>
+                </div>
+        </nav>
+        <!-- ini navbar end -->
+
+
+        <div class="container mt-5">
+            <!-- Gambar Cypher -->
+            <div class="text-center">
+                <div class="container-profile row">
+                    <div class="col " style="background-color: #131319; border-radius: 8px; color: #EAEAEA; ">
+                        <!-- profile box -->
+                        <img class="profile-pic" src="../images/viper_icon.png" alt="">
+                        <div style="margin: 20px;">
+                            <h1 class="text-center">Viper</h1>
+                            <p class="text-center fst-italic">"Welcome to my world!"</p>
+                        </div>
+                        <div class="mt-5">
+                            <ul class="row">
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Class</strong>
+                                    <img class="profile-class row" src="../images/controller.png" alt="">
+                                </div>
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Playstyle</strong>
+                                    <strong class="row" style="margin: 50px;color: #C6A87D;">SUP</strong>
+                                </div>
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Difficulty</strong>
+                                    <strong class="row" style="margin: 50px; color: #C6A87D;">HARD</strong>
+                                </div>
+                            </ul>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- banner -->
+                        <img src="../images/viper.png" alt="Cypher" class="col cypher-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deskripsi -->
+            <div class="card mt-4" style="background-color: #00a878; border: 3px solid #C6A87D; color: #131319;">
+                <div class="m-3">
+                    <h2>Overview</h2>
+                    <p>Viper adalah Controller di Valorant yang menggunakan racun untuk mengendalikan area dan membatasi pergerakan musuh. Dengan bahan kimia beracunnya, Viper bisa mempersulit lawan dengan smoke, wall, dan molly, serta ultimate yang dapat
+                        menguasai satu area besar. Jika digunakan dengan benar, Viper bisa menjadi anchor yang kuat di defense dan memberikan keunggulan besar saat attack.</p>
+                </div>
+            </div>
+
+            <div class="container mt-5">
+                <div class="row">
+                    <!-- Skillset -->
+                    <div class="col-md5 card text-center p-3" style="width: 640px; background-color: #1a1a1a; color: white; border: 3px solid #C6A87D;">
+                        <video class="w-100 rounded" controls id="skill-video">
+                <source src="../videos/viper_c.mp4" type="video/mp4">
+                Browser tidak mendukung pemutaran video.
+            </video>
+                        <div class="card-body">
+                            <h5 class="card-title" id="skill-name">Snake Bite</h5>
+                            <p class="card-text" id="skill-desc">Menembakkan proyektil beracun yang menciptakan zona beracun.</p>
+                            <div>
+                                <button class="btn btn-success m-2" onclick="changeSkill('C')">C</button>
+                                <button class="btn btn-warning m-2" onclick="changeSkill('Q')">Q</button>
+                                <button class="btn btn-info m-2" onclick="changeSkill('E')">E</button>
+                                <button class="btn btn-danger m-2" onclick="changeSkill('X')">X</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TIPS -->
+                    <div class="col card mx-auto text-center" style="background-color: #2ecc71; border: 3px solid #C6A87D; color: #131319;" id="skill-tips">
+                        <h2>TIPS</h2>
+                        <ul>
+                            <li><strong>Toxic Screen (E)</strong> bisa digunakan untuk memotong garis pandang musuh. Ini sangat efektif untuk masuk site atau menahan retake. Gunakan screen secara diagonal agar menutupi lebih banyak area sekaligus membingungkan
+                                lawan.</li>
+                            <hr>
+                            <li><strong>Poison Cloud (Q)</strong> bisa kamu jadikan sebagai one-way smoke dengan meletakkannya di atas kotak atau pinggiran tembok. Ini akan membuatmu bisa melihat kaki musuh terlebih dahulu, sementara mereka tidak bisa melihatmu
+                                sepenuhnya.</li>
+                            <hr>
+                            <li><strong>Snake Bite (C)</strong> tidak hanya memberikan damage, tapi juga memberi efek decay. Kombinasikan dengan utility lain seperti stun dari Breach atau slow dari Sage agar musuh lebih mudah dieliminasi.</li>
+                            <hr>
+                            <li><strong>Viper’s Pit (X)</strong> sangat kuat di situasi post-plant. Gunakan saat spike sudah ditanam, atau saat kamu mempertahankan site sendirian. Bergerak di dalam kabut agar tidak mudah dilacak musuh.</li>
+                            <hr>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                <h1 class="text-center mt-5 ">GUIDE VIDEO PILIHAN</h1>
+            </div>
+
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/k1cj39KWIRs" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Strategi Ultimate Viper 2024</h5>
+                            <p class="card-text">Pelajari cara menggunakan semua skill Viper untuk mendominasi setiap round.</p>
+                            <a href="https://www.youtube.com/watch?v=k1cj39KWIRs" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/rIpmaVEb3Ao" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Trik Smoke Viper Paling Efisien</h5>
+                            <p class="card-text">Tips dan trik mengatur wall dan smoke untuk kontrol map maksimal.</p>
+                            <a href="https://www.youtube.com/watch?v=rIpmaVEb3Ao" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-2">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/UxX_xe0PExA" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Lineup Viper Icebox Terbaru</h5>
+                            <p class="card-text">Simpan lineup ini untuk memenangkan Icebox dengan setup Viper terbaik.</p>
+                            <a href="https://www.youtube.com/watch?v=UxX_xe0PExA" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/kO5yCfgtZbg" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Panduan Viper Full Map Control</h5>
+                            <p class="card-text">Bawa tim kamu menuju kemenangan dengan dominasi area menggunakan Viper.</p>
+                            <a href="https://www.youtube.com/watch?v=kO5yCfgtZbg" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-2">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/EQ0EPtzIKzc" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Tutorial Setup Viper Abyss</h5>
+                            <p class="card-text">Gunakan setup unik ini untuk kuasai Abyss sebagai Viper di ranked.</p>
+                            <a href="https://www.youtube.com/watch?v=EQ0EPtzIKzc" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/djfqk-M0X_8" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Viper Sunset Attack + Defense Tips</h5>
+                            <p class="card-text">Strategi lengkap Viper di Sunset, mulai dari first round hingga late game.</p>
+                            <a href="https://www.youtube.com/watch?v=djfqk-M0X_8" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>
+</body>
+
+
+
+
+</html>

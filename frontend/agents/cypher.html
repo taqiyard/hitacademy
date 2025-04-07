@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cypher - HIT Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../images/hit_logo.jpg" type="image/jpeg">
+    <link rel="icon" href="/images/hit_logo.jpg" type="image/jpeg">
+    <script src="../script.js"></script>
+    <script defer src="cypher.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const isPrem = localStorage.getItem("is_prem");
+
+            // Kalau belum login atau belum premium
+            if (!isPrem || isPrem !== "1") {
+                window.location.href = "../restricted.html";
+            }
+        });
+    </script>
+
+    <style>
+        body {
+            background-color: #b9b9b9;
+            color: #131319;
+        }
+        
+        .cypher-img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 4px solid black;
+        }
+        
+        .profile-pic {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 10px;
+            border: 3px solid white;
+        }
+        
+        .profile-class {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 10px;
+            margin-left: 25px;
+            border: 3px solid white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <!-- ini navbar -->
+        <nav class="navbar bg-danger mb-5">
+            <div class="container-fluid">
+                <img src="../logo.png" alt="Logo" width="5%" height="5%">
+                <a class="navbar-brand" href="../index.html" style="font-weight: 600;">HIT Academy</a>
+                <div class="d-flex align-items-center ms-auto">
+                    <a id="login-button" class="btn btn-dark me-2 mr-5" href="../login.html" style="color:#ff4655; font-weight: 600;">MASUK</a>
+                    <button class="navbar-toggler m-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav" style="font-weight: 800;">
+                            <a class="nav-link" href="../index.html">Home</a>
+                            <a class="nav-link" href="agents.html">Agents</a>
+                            <a class="nav-link" href="../sub.html">Subscribe</a>
+                            <a class="nav-link" href="../about.html">About Us</a>
+                        </div>
+                    </div>
+                </div>
+        </nav>
+        <!-- ini navbar end -->
+
+
+        <div class="container mt-5">
+            <!-- Gambar Cypher -->
+            <div class="text-center">
+                <div class="container-profile row">
+                    <div class="col " style="background-color: #131319; border-radius: 8px; color: #EAEAEA; ">
+                        <!-- profile box -->
+                        <img class="profile-pic" src="../images/cypher_icon.png" alt="">
+                        <div style="margin: 20px;">
+                            <h1 class="text-center">Cypher</h1>
+                            <p class="text-center fst-italic">"I know exactly where you are!"</p>
+                        </div>
+                        <div class="mt-5">
+                            <ul class="row">
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Class</strong>
+                                    <img class="profile-class row" src="../images/sentinel.png" alt="">
+                                </div>
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Playstyle</strong>
+                                    <strong class="row" style="margin: 50px;color: #C6A87D;">LURK</strong>
+                                </div>
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Difficulty</strong>
+                                    <strong class="row" style="margin: 50px; color: #C6A87D;">MEDIUM</strong>
+                                </div>
+                            </ul>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- banner -->
+                        <img src="../images/cypher.png" alt="Cypher" class="col cypher-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deskripsi -->
+            <div class="card mt-4" style="background-color: #1b263b; border: 3px solid #C6A87D; color: #f8f9fa;">
+                <div class="m-3">
+                    <h2>Overview</h2>
+                    <p>Cypher adalah seorang Sentinel yang ahli dalam mengendalikan informasi. Dengan perangkat mata-matanya, dia dapat mendeteksi pergerakan musuh dan mengontrol area dengan mudah.</p>
+                </div>
+            </div>
+
+            <div class="container mt-5">
+                <div class="row">
+                    <!-- Skillset -->
+                    <div class="col-md5 card text-center p-3" style="width: 640px; background-color: #0d1b2a; color: #f8f9fa; border: 3px solid #C6A87D;">
+                        <video class="w-100 rounded" controls id="skill-video">
+                <source src="../videos/cypher_c.mp4" type="video/mp4">
+                Browser tidak mendukung pemutaran video.
+            </video>
+                        <div class="card-body">
+                            <h5 class="card-title" id="skill-name">Trapwire</h5>
+                            <p class="card-text" id="skill-desc">Memasang jebakan untuk mendeteksi musuh.</p>
+                            <div>
+                                <button class="btn btn-primary m-2" onclick="changeSkill('C')">C</button>
+                                <button class="btn btn-secondary m-2" onclick="changeSkill('Q')">Q</button>
+                                <button class="btn btn-info m-2" onclick="changeSkill('E')">E</button>
+                                <button class="btn btn-dark m-2" onclick="changeSkill('X')">X</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TIPS -->
+                    <div class="col card mx-auto text-center" style="background-color: #415a77; border: 3px solid #C6A87D; color: #e0e1dd;" id="skill-tips">
+                        <h2>TIPS</h2>
+                        <ul>
+                            <li><strong>Spycam (E)</strong> mirip dengan Owl Drone milik Sova, kameramu bisa menjadi alat yang berguna untuk mengintip sebelum memasuki suatu area. Kamu bisa memancing perhatian musuh ke kameramu, lalu biarkan rekan setimmu
+                                menembak mereka saat mereka teralihkan.</li>
+                            <hr>
+                            <li><strong>Trapwire (C)</strong> sebaiknya dipasang sebelum fase pembelian berakhir agar bisa langsung meng-cover area penting. Letakkan di tempat yang sulit dilihat musuh untuk mendapatkan efek maksimal.</li>
+                            <hr>
+                            <li><strong>Cyber Cage (Q)</strong> bisa diaktifkan dari mana saja selama kamu bisa melihatnya, bahkan melalui dinding atau menggunakan Spycam.</li>
+                            <hr>
+                            <li><strong>Neural Theft (X)</strong> bisa memberikan informasi posisi seluruh tim musuh. Gunakan setelah mendapatkan kill pertama untuk keuntungan maksimal dalam rotasi atau push.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div>
+                <h1 class="text-center mt-5 ">GUIDE VIDEO PILIHAN</h1>
+            </div>
+
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/bIR_TVV5yJI" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Rahasia Trapwire Cypher</h5>
+                            <p class="card-text">Temukan posisi trapwire tersembunyi yang bikin musuh panik sebelum sempat masuk site.</p>
+                            <a href="https://www.youtube.com/watch?v=bIR_TVV5yJI" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/3YqPTocB3NM" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cypher Setup Icebox Paling Efektif</h5>
+                            <p class="card-text">Kuasai area penting Icebox dengan setup kamera dan trap yang sulit ditebak.</p>
+                            <a href="https://www.youtube.com/watch?v=3YqPTocB3NM" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-2">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/K3SeF80KyWI" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Ultimate Cypher di Map Haven</h5>
+                            <p class="card-text">Tonton trik dan posisi kamera terbaik Cypher untuk menjaga tiga site dengan efisien.</p>
+                            <a href="https://www.youtube.com/watch?v=K3SeF80KyWI" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/iOTtXq4HDVo" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cypher Setup Lotus Defend</h5>
+                            <p class="card-text">Lindungi site dengan trapwire dan cage yang mematikan di map Lotus.</p>
+                            <a href="https://www.youtube.com/watch?v=iOTtXq4HDVo" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-2">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/cIrJ7qzXkks" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cara Main Cypher Pro Style</h5>
+                            <p class="card-text">Belajar cara berpikir dan rotasi seperti pro player saat pakai Cypher.</p>
+                            <a href="https://www.youtube.com/watch?v=cIrJ7qzXkks" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/bIR_TVV5yJI" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cypher One Way dan Trap Cerdas</h5>
+                            <p class="card-text">Gunakan kombinasi cage dan trapwire yang bikin musuh nggak bisa masuk site.</p>
+                            <a href="https://www.youtube.com/watch?v=bIR_TVV5yJI" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>
+</body>
+
+
+
+
+</html>

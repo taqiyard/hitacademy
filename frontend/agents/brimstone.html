@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brimstone - HIT Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../images/hit_logo.jpg" type="image/jpeg">
+    <link rel="icon" href="/images/hit_logo.jpg" type="image/jpeg">
+    <script src="../script.js"></script>
+    <script defer src="brimstone.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const isPrem = localStorage.getItem("is_prem");
+
+            // Kalau belum login atau belum premium
+            if (!isPrem || isPrem !== "1") {
+                window.location.href = "../restricted.html";
+            }
+        });
+    </script>
+
+    <style>
+        body {
+            background-color: #fcc423;
+            color: #131319;
+        }
+        
+        .cypher-img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 4px solid black;
+        }
+        
+        .profile-pic {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 10px;
+            border: 3px solid white;
+        }
+        
+        .profile-class {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 10px;
+            margin-left: 25px;
+            border: 3px solid white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <!-- ini navbar -->
+        <nav class="navbar bg-danger mb-5">
+            <div class="container-fluid">
+                <img src="../logo.png" alt="Logo" width="5%" height="5%">
+                <a class="navbar-brand" href="../index.html" style="font-weight: 600;">HIT Academy</a>
+                <div class="d-flex align-items-center ms-auto">
+                    <a id="login-button" class="btn btn-dark me-2 mr-5" href="../login.html" style="color:#ff4655; font-weight: 600;">MASUK</a>
+                    <button class="navbar-toggler m-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav" style="font-weight: 800;">
+                            <a class="nav-link" href="../index.html">Home</a>
+                            <a class="nav-link" href="agents.html">Agents</a>
+                            <a class="nav-link" href="../sub.html">Subscribe</a>
+                            <a class="nav-link" href="../about.html">About Us</a>
+                        </div>
+                    </div>
+                </div>
+        </nav>
+        <!-- ini navbar end -->
+
+
+        <div class="container mt-5">
+            <div class="text-center">
+                <div class="container-profile row">
+                    <div class="col " style="background-color: #131319; border-radius: 8px; color: #EAEAEA; ">
+                        <!-- profile box -->
+                        <img class="profile-pic" src="../images/brimstone_icon.png" alt="">
+                        <div style="margin: 20px;">
+                            <h1 class="text-center">Brimstone</h1>
+                            <p class="text-center fst-italic">“Prepare for hellfire!”</p>
+                        </div>
+                        <div class="mt-5">
+                            <ul class="row">
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Class</strong>
+                                    <img class="profile-class row" src="../images/controller.png" alt="">
+                                </div>
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Playstyle</strong>
+                                    <strong class="row" style="margin: 50px;color: #C6A87D;">SUP</strong>
+                                </div>
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Difficulty</strong>
+                                    <strong class="row" style="margin: 50px; color: #C6A87D;">EASY</strong>
+                                </div>
+                            </ul>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- banner -->
+                        <img src="../images/brimstone.png" alt="Brimstone" class="col cypher-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deskripsi -->
+            <div class="card mt-4" style="background-color: #C1440E; border: 3px solid #1a1a1a; color: white;">
+                <div class="m-3">
+                    <h2>Overview</h2>
+                    <p>Brimstone adalah seorang Controller yang sangat efektif untuk mengendalikan area dan memimpin serangan. Dengan utilitas granat asap dan incendiary, dia mampu memutus jalur rotasi dan menahan musuh di tempat yang tidak nyaman.</p>
+                </div>
+            </div>
+
+            <div class="container mt-5">
+                <div class="row">
+                    <!-- Skillset -->
+                    <div class="col-md5 card text-center p-3" style="width: 640px; background-color: #1a1a1a; color: white; border: 3px solid #C1440E;">
+                        <!-- skillset video -->
+                        <video class="w-100 rounded" controls id="skill-video">
+                <source src="../videos/brimstone_c.mp4" type="video/mp4">
+                Browser tidak mendukung pemutaran video.
+            </video>
+                        <div class="card-body">
+                            <h5 class="card-title" id="skill-name">Incendiary</h5>
+                            <p class="card-text" id="skill-desc">Menembakkan granat api yang membakar area dan mencegah musuh masuk atau bertahan di tempat tertentu.</p>
+                            <div>
+                                <button class="btn btn-warning m-2" onclick="changeSkill('C')">C</button>
+                                <button class="btn btn-info m-2" onclick="changeSkill('Q')">Q</button>
+                                <button class="btn btn-success m-2" onclick="changeSkill('E')">E</button>
+                                <button class="btn btn-danger m-2" onclick="changeSkill('X')">X</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TIPS -->
+                    <div class="col card mx-auto text-center" style="background-color: #C1440E; border: 3px solid #1a1a1a; color: white;" id="skill-tips">
+                        <h2>TIPS</h2>
+                        <ul>
+                            <li><strong>Sky Smoke (E)</strong> digunakan untuk memutus pandangan musuh saat push atau retake. Kombinasikan dengan suara langkah untuk mengecoh musuh.</li>
+                            <hr>
+                            <li><strong>Incendiary (C)</strong> sangat efektif untuk mencegah defuse atau post-plant. Hafalkan lineup-nya agar bisa dilempar dari jauh.</li>
+                            <hr>
+                            <li><strong>Stim Beacon (Q)</strong> bisa membantu saat tim ingin melakukan rush atau clutch duel. Pastikan penggunaannya tepat waktu agar tidak sia-sia.</li>
+                            <hr>
+                            <li><strong>Orbital Strike (X)</strong> bisa digunakan untuk zoning area, memaksa musuh keluar dari tempat sembunyi, atau menggagalkan defuse/plant.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h1 class="text-center mt-5 ">GUIDE VIDEO PILIHAN</h1>
+            </div>
+
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/ZKVx1AVwibg" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Incendiary Tips</h5>
+                            <p class="card-text">Pelajari cara maksimalin molly Brimstone buat zoning musuh secara efisien.</p>
+                            <a href="https://www.youtube.com/watch?v=ZKVx1AVwibg" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/MXZcsNa6DLk" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Stim Beacon Usage</h5>
+                            <p class="card-text">Gunakan Stim Beacon secara optimal untuk support tim di waktu krusial.</p>
+                            <a href="https://www.youtube.com/watch?v=MXZcsNa6DLk" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-2">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/R_-cA-DLtWA" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Sky Smoke Mastery</h5>
+                            <p class="card-text">Latih presisi smoke Brimstone agar tim kamu bisa push atau retake dengan aman.</p>
+                            <a href="https://www.youtube.com/watch?v=R_-cA-DLtWA" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/MJgOQaUmbV4" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Orbital Strike Tactics</h5>
+                            <p class="card-text">Cari tahu momen terbaik untuk mengaktifkan ultimate Brimstone dan amankan ronde.</p>
+                            <a href="https://www.youtube.com/watch?v=MJgOQaUmbV4" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-2">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/5_zcyIQPn1M" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Brimstone Pro Lineups</h5>
+                            <p class="card-text">Belajar lineup-lineup profesional yang bikin kamu lebih efektif di post-plant.</p>
+                            <a href="https://www.youtube.com/watch?v=5_zcyIQPn1M" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/tlJ7x1E3T7s" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Brimstone IGL Guide</h5>
+                            <p class="card-text">Jadi pemimpin tim dengan gameplay Brimstone yang penuh perhitungan dan strategi.</p>
+                            <a href="https://www.youtube.com/watch?v=tlJ7x1E3T7s" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>
+</body>
+
+
+
+
+</html>

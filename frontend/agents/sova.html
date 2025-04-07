@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sova - HIT Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../images/hit_logo.jpg" type="image/jpeg">
+    <link rel="icon" href="/images/hit_logo.jpg" type="image/jpeg">
+    <script src="../script.js"></script>
+    <script defer src="sova.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const isPrem = localStorage.getItem("is_prem");
+
+            // Kalau belum login atau belum premium
+            if (!isPrem || isPrem !== "1") {
+                window.location.href = "../restricted.html";
+            }
+        });
+    </script>
+
+    <style>
+        body {
+            background-color: #10255c;
+            color: #131319;
+        }
+        
+        .cypher-img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 4px solid black;
+        }
+        
+        .profile-pic {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 10px;
+            border: 3px solid white;
+        }
+        
+        .profile-class {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 10px;
+            margin-left: 25px;
+            border: 3px solid white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <!-- ini navbar -->
+        <nav class="navbar bg-danger mb-5">
+            <div class="container-fluid">
+                <img src="../logo.png" alt="Logo" width="5%" height="5%">
+                <a class="navbar-brand" href="../index.html" style="font-weight: 600;">HIT Academy</a>
+                <div class="d-flex align-items-center ms-auto">
+                    <a id="login-button" class="btn btn-dark me-2 mr-5" href="../login.html" style="color:#ff4655; font-weight: 600;">MASUK</a>
+                    <button class="navbar-toggler m-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav" style="font-weight: 800;">
+                            <a class="nav-link" href="../index.html">Home</a>
+                            <a class="nav-link" href="agents.html">Agents</a>
+                            <a class="nav-link" href="../sub.html">Subscribe</a>
+                            <a class="nav-link" href="../about.html">About Us</a>
+                        </div>
+                    </div>
+                </div>
+        </nav>
+        <!-- ini navbar end -->
+
+
+        <div class="container mt-5">
+            <div class="text-center">
+                <div class="container-profile row">
+                    <div class="col " style="background-color: #131319; border-radius: 8px; color: #EAEAEA; ">
+                        <!-- profile box -->
+                        <img class="profile-pic" src="../images/sova_icon.png" alt="">
+                        <div style="margin: 20px;">
+                            <h1 class="text-center">Sova</h1>
+                            <p class="text-center fst-italic">“Nowhere to run!”</p>
+                        </div>
+                        <div class="mt-5">
+                            <ul class="row">
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Class</strong>
+                                    <img class="profile-class row" src="../images/initiator.png" alt="">
+                                </div>
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Playstyle</strong>
+                                    <strong class="row" style="margin: 50px;color: #C6A87D;">ENTRY</strong>
+                                </div>
+                                <div class="col">
+                                    <strong class="row" style="justify-content: center;">Difficulty</strong>
+                                    <strong class="row" style="margin: 50px; color: #C6A87D;">HARD</strong>
+                                </div>
+                            </ul>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- banner -->
+                        <img src="../images/sova.png" alt="Sova" class="col cypher-img">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deskripsi -->
+            <!-- Overview Sova -->
+            <div class="card mt-4" style="background-color: #60a5fa; border: 3px solid #C6A87D; color: #131319;">
+                <div class="m-3">
+                    <h2>Overview</h2>
+                    <p>Sova adalah seorang Initiator dari Rusia yang ahli dalam pengintaian dan pengumpulan informasi. Dengan panah dan drone-nya, Sova dapat mendeteksi posisi musuh dari kejauhan dan membantu timnya mengambil kontrol map dengan mudah.</p>
+                </div>
+            </div>
+
+            <!-- Skillset dan Tips -->
+            <div class="container mt-5">
+                <div class="row">
+                    <!-- Skillset -->
+                    <div class="col-md5 card text-center p-3" style="width: 640px; background-color: #1a1a1a; color:white;border: 3px solid #C6A87D;">
+                        <video class="w-100 rounded" controls id="skill-video-sova">
+                <source src="../videos/sova_c.mp4" type="video/mp4">
+                Browser tidak mendukung pemutaran video.
+            </video>
+                        <div class="card-body">
+                            <h5 class="card-title" id="skill-name-sova">Owl Drone</h5>
+                            <p class="card-text" id="skill-desc-sova">Kirimkan drone terbang yang bisa menandai musuh dengan dart penanda, mengungkap posisi mereka untuk sementara waktu.</p>
+                            <div>
+                                <button class="btn btn-warning m-2" onclick="changeSkillSova('C')">C</button>
+                                <button class="btn btn-info m-2" onclick="changeSkillSova('Q')">Q</button>
+                                <button class="btn btn-success m-2" onclick="changeSkillSova('E')">E</button>
+                                <button class="btn btn-danger m-2" onclick="changeSkillSova('X')">X</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="col card mx-auto text-center" style="background-color: #60a5fa;border: 3px solid #C6A87D;color :#131319" id="skill-tips-sova">
+                        <h2>TIPS</h2>
+                        <ul>
+                            <li><strong>Owl Drone (C)</strong> sangat berguna di awal ronde untuk scout entry points dan menandai musuh dari jarak aman.</li>
+                            <hr>
+                            <li><strong>Shock Bolt (Q)</strong> bisa digunakan untuk meng-clear area default plant atau musuh yang sedang defuse/plant.</li>
+                            <hr>
+                            <li><strong>Recon Bolt (E)</strong> bisa menempel di tembok dan memantul — pelajari lineup agar bisa reveal area tanpa terlihat.</li>
+                            <hr>
+                            <li><strong>Hunter's Fury (X)</strong> dapat menembus seluruh map secara horizontal — sangat efektif untuk combo dengan info dari Recon atau teammates.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h1 class="text-center mt-5 ">GUIDE VIDEO PILIHAN</h1>
+            </div>
+
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/KizfBW-L1Qk" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Sova Lineups Ascent Guide</h5>
+                            <p class="card-text">Pelajari lineup recon dart dan shock dart untuk map Ascent agar Sova kamu makin optimal.</p>
+                            <a href="https://youtu.be/KizfBW-L1Qk" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/XKd3U9JCLL8" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Sova Guide for Beginners</h5>
+                            <p class="card-text">Panduan dasar untuk pemain baru yang ingin menguasai role initiator seperti Sova.</p>
+                            <a href="https://youtu.be/XKd3U9JCLL8" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-2">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/Mey7vc-xcIg" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Master Recon Dart</h5>
+                            <p class="card-text">Optimalkan penggunaan recon dart untuk mengungkap musuh di berbagai posisi.</p>
+                            <a href="https://youtu.be/Mey7vc-xcIg" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/RwEQ5zMqlEc" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Shock Dart Kills</h5>
+                            <p class="card-text">Tutorial shock dart yang bisa langsung mengeliminasi musuh di area populer.</p>
+                            <a href="https://youtu.be/RwEQ5zMqlEc" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-2">
+                <div class="row">
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/HLE32CD555k" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Sova Arrow Tricks</h5>
+                            <p class="card-text">Trik panah dari Sova yang bisa bantu tim dapat informasi penting atau entry kill.</p>
+                            <a href="https://youtu.be/HLE32CD555k" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                    <div class="col card" style="width: 18rem;">
+                        <div class="ratio ratio-16x9 mt-4">
+                            <iframe src="https://www.youtube.com/embed/tyUFAmh9h5c" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Ultimate Sova Value</h5>
+                            <p class="card-text">Cara maksimalin Hunter’s Fury untuk dapat kill penting dan menghalau plant/defuse.</p>
+                            <a href="https://youtu.be/tyUFAmh9h5c" class="btn btn-primary">Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>
+</body>
+
+
+
+
+</html>

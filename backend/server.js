@@ -12,8 +12,8 @@ app.use(cors());
 // Koneksi Database MySQL
 const db = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "",
+    user: "taqiyard",
+    password: "anakilang123",
     database: "akademi_valorant"
 });
 

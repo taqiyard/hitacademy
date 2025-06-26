@@ -71,7 +71,7 @@ As the project initiator, I am responsible for:
 
 Feel free to reach out for collaboration or questions:
 
-- 📫 Email: your.email@example.com  
+- 📫 Email: taqiyardan19@gmail.com  
 - 💼 LinkedIn: [linkedin.com/in/muhammad-taqi-yardan-037748285](https://linkedin.com/in/muhammad-taqi-yardan-037748285)  
 - 🌐 GitHub: [github.com/taqiyard](https://github.com/taqiyard)
 

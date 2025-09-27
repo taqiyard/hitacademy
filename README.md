@@ -1,4 +1,4 @@
-# 🎯 Hitacedemy
+# 🎯 Hitacademy
 
 **Hitacedemy** is an online educational project focused on helping beginners learn **Valorant** more effectively. It curates high-quality YouTube content and organizes it into a structured format, turning scattered tutorials into a guided learning experience.
 

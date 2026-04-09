@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const loginButton = document.getElementById("login-button");
 
-    const loginPath = "/login.html";  // pakai path absolut
+    const loginPath = "/frontend/login.html"; // pakai path absolut
 
     if (localStorage.getItem("token")) {
         loginButton.innerText = "LOGOUT";

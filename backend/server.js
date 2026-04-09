@@ -53,7 +53,7 @@ app.post("/api/signup", async(req, res) => {
     });
 });
 
-
+/*
 app.post("/api/generate-code", (req, res) => {
     const { adminPassword } = req.body; // Simulasi keamanan admin
 
@@ -67,6 +67,8 @@ app.post("/api/generate-code", (req, res) => {
         res.json({ message: "Code generated", code: randomCode });
     });
 });
+
+*/
 
 // ✅ 2. API untuk User Redeem Kode
 app.post("/api/redeem", (req, res) => {

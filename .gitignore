@@ -1,5 +1,5 @@
 #ignore env ofc
-*.env
+*.env.example
 
 #ignore node_modules
 backend/node_modules/

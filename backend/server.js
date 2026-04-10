@@ -11,11 +11,14 @@ app.use(cors());
 
 // Koneksi Database MySQL
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "akademi_valorant"
+    host: process.env.DB_HOST || "localhost",
+    user: process.env.DB_USER || "root",
+    password: process.env.DB_PASSWORD || "",
+    database: process.env.DB_NAME || "akademi_valorant"
 });
+
+const jwtSecret = process.env.JWT_SECRET || "secretkey";
+const port = process.env.PORT || 5000;
 
 db.connect(err => {
     if (err) {
@@ -36,7 +39,7 @@ app.post("/api/login", (req, res) => {
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(400).json({ message: "Invalid password" });
 
-        const token = jwt.sign({ id: user.id }, "secretkey", { expiresIn: "1h" });
+        const token = jwt.sign({ id: user.id }, jwtSecret, { expiresIn: "1h" });
         res.json({ token, userId: user.id, is_prem: user.is_prem }); // Menambahkan userId
     });
 });
@@ -70,7 +73,7 @@ app.post("/api/generate-code", (req, res) => {
 
 */
 
-// ✅ 2. API untuk User Redeem Kode
+// API untuk User Redeem Kode
 app.post("/api/redeem", (req, res) => {
     const { userId, code } = req.body;
     console.log("Redeem request:", req.body);
@@ -134,11 +137,15 @@ const checkSubscription = (req, res, next) => {
     });
 };
 
-// ✅ 4. API untuk Akses Fitur Premium
+//  API untuk Akses Fitur Premium
 app.post("/api/premium-content", checkSubscription, (req, res) => {
     res.json({ message: "Welcome to premium content!" });
 });
 
+// Route untuk frontend
+app.get("/login", (req, res) => {
+    res.sendFile(__dirname + "/hitacademy/frontend/login.html"); //ganti ini sesuai path host/ ketika deployt
+}); //still unused
 
 // Start Server
-app.listen(5000, () => console.log("Server running on port 5000"));
+app.listen(port, () => console.log(`Server running on port ${port}`));
